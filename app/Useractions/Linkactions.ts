@@ -92,3 +92,83 @@ export const incrementLinkClicks = async (shortUrl: string) => {
         throw new Error("Failed to increment link clicks");
     }
 }
+
+export const getAllLinks = async () => {
+    try {
+        await connectDb();
+        const links = await Link.find({}).sort({ createdAt: -1 }).limit(50);
+        return links.map(link => ({
+            url: link.url,
+            shortUrl: link.shortUrl,
+            clicks: link.clicks,
+            _id: link._id.toString(),
+            createdAt: link.createdAt,
+            updatedAt: link.updatedAt
+        }));
+    } catch (error) {
+        console.error("Error fetching links:", error);
+        throw new Error("Failed to fetch links");
+    }
+}
+
+export const deleteLink = async (id: string) => {
+    try {
+        await connectDb();
+        const deletedLink = await Link.findByIdAndDelete(id);
+        return deletedLink;
+    } catch (error) {
+        console.error("Error deleting link:", error);
+        throw new Error("Failed to delete link");
+    }
+}
+
+export const updateLink = async (id: string, url: string) => {
+    try {
+        await connectDb();
+        const updatedLink = await Link.findByIdAndUpdate(
+            id,
+            { url },
+            { new: true }
+        );
+        return {
+            url: updatedLink.url,
+            shortUrl: updatedLink.shortUrl,
+            clicks: updatedLink.clicks,
+            _id: updatedLink._id.toString(),
+            createdAt: updatedLink.createdAt,
+            updatedAt: updatedLink.updatedAt
+        };
+    } catch (error) {
+        console.error("Error updating link:", error);
+        throw new Error("Failed to update link");
+    }
+}
+
+export const getLinkStats = async () => {
+    try {
+        await connectDb();
+        const totalLinks = await Link.countDocuments();
+        const totalClicks = await Link.aggregate([
+            { $group: { _id: null, totalClicks: { $sum: "$clicks" } } }
+        ]);
+        const recentLinks = await Link.countDocuments({
+            createdAt: { $gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) }
+        });
+        const topLinks = await Link.find({}).sort({ clicks: -1 }).limit(5);
+
+        return {
+            totalLinks,
+            totalClicks: totalClicks[0]?.totalClicks || 0,
+            recentLinks,
+            topLinks: topLinks.map(link => ({
+                url: link.url,
+                shortUrl: link.shortUrl,
+                clicks: link.clicks,
+                _id: link._id.toString()
+            }))
+        };
+    } catch (error) {
+        console.error("Error fetching link stats:", error);
+        throw new Error("Failed to fetch link stats");
+    }
+}

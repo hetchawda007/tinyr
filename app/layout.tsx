@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Tinyr - URL Shortener',
+  title: 'Sujo - URL Shortener',
   description: 'Transform long URLs into powerful, shareable links in seconds',
   icons: {
     icon: '/favicon.ico',
