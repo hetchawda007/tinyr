@@ -4,8 +4,8 @@ import { signIn, useSession } from 'next-auth/react'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const page = () => {
-  const { data: session, status } = useSession()
+const Page = () => {
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
@@ -72,4 +72,4 @@ const page = () => {
   return null
 }
 
-export default page
+export default Page

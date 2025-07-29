@@ -50,7 +50,7 @@ const Navbar = () => {
                     {/* Show Login button if not authenticated */}
                     {status !== 'loading' && !session && (
                         <Button className="cursor-pointer">
-                            <Link href="/login" className={`${poppinsregular.className} font-semibold`}>Login</Link>
+                            <Link href="/login" className={`${poppinsregular.className} font-semibold cursor-pointer`}>Login</Link>
                         </Button>
                     )}
 
@@ -58,7 +58,7 @@ const Navbar = () => {
                     {status !== 'loading' && session && (
                         <>
                             <Button variant="outline" className="cursor-pointer">
-                                <Link href="/dashboard" className={`${poppinsregular.className} font-semibold`}>Dashboard</Link>
+                                <Link href="/dashboard" className={`${poppinsregular.className} font-semibold cursor-pointer`}>Dashboard</Link>
                             </Button>
                             <Button variant="destructive" onClick={handleLogout} className="cursor-pointer">
                                 <span className={`${poppinsregular.className} font-semibold`}>Logout</span>
