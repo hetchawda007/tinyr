@@ -17,8 +17,7 @@ import {
     MdCheck,
     MdClose,
     MdRefresh,
-    MdShare,
-    MdQrCode
+    MdShare
 } from 'react-icons/md';
 import { createlink, getAllLinks, deleteLink, updateLink, getLinkStats } from '../Useractions/Linkactions';
 import Link from 'next/link';
