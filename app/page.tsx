@@ -224,30 +224,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="py-16 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-y border-gray-200/50 dark:border-gray-700/50">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">1M+</div>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">Links Shortened</p>
-            </div>
-            <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">50K+</div>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">Happy Users</p>
-            </div>
-            <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-2">99.9%</div>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">Uptime</p>
-            </div>
-            <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">24/7</div>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">Support</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Enhanced Features Section */}
       <div className="py-24 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
         <div className="container mx-auto px-6">
