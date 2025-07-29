@@ -13,20 +13,20 @@ export default function NotFoundPage() {
                         The page you&apos;re looking for doesn&apos;t exist or has been moved.
                     </p>
                 </div>
-                
+
                 <div className="space-y-4">
-                    <Link 
+                    <Link
                         href="/"
                         className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
                     >
                         Go Back Home
                     </Link>
-                    
+
                     <div className="text-sm text-gray-500">
                         <p>Lost? Try going back to the homepage.</p>
                     </div>
                 </div>
-                
+
                 <div className="mt-12">
                     <svg
                         className="mx-auto h-32 w-32 text-gray-300"

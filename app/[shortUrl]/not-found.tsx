@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { poppinsregular } from '@/fonts/fonts';
 
 export default function NotFound() {
     return (
-        <div className={`min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 ${poppinsregular.className}`}>
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
             <div className="text-center max-w-md mx-auto px-4">
                 <div className="mb-8">
                     <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
@@ -18,15 +16,20 @@ export default function NotFound() {
 
                 <div className="space-y-4">
                     <Link href="/" className="block">
-                        <Button className="w-full bg-red-500 hover:bg-red-600 text-white">
+                        <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                             Create New Link
-                        </Button>
+                        </button>
                     </Link>
-                    <Link href="/" className="block">
-                        <Button variant="outline" className="w-full">
-                            Go Home
-                        </Button>
+
+                    <Link href="/dashboard" className="block">
+                        <button className="w-full border border-gray-300 text-gray-700 dark:text-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            Go to Dashboard
+                        </button>
                     </Link>
+                </div>
+
+                <div className="mt-8 text-xs text-gray-500 dark:text-gray-400">
+                    Error 404 - Page Not Found
                 </div>
             </div>
         </div>

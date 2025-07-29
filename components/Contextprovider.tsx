@@ -1,6 +1,7 @@
 "use client"
 import React, { createContext, useEffect, useContext } from 'react'
 import { useState } from "react";
+import { SessionProvider } from "next-auth/react";
 import "@/app/globals.css";
 
 type ThemeContextType = {
@@ -49,9 +50,11 @@ const Contextprovider = ({ children }: ContextproviderProps) => {
     }, [theme, mounted]);
 
     return (
-        <ThemeContext.Provider value={{ theme, setTheme }}>
-            {children}
-        </ThemeContext.Provider>
+        <SessionProvider>
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+                {children}
+            </ThemeContext.Provider>
+        </SessionProvider>
     );
 };
 

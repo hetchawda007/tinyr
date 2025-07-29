@@ -5,6 +5,7 @@ import { Button } from './ui/button'
 import { Karla } from 'next/font/google'
 import { poppinsregular } from '@/fonts/fonts'
 import { useTheme } from './Contextprovider'
+import { useSession, signOut } from 'next-auth/react'
 import { WiDaySunny } from "react-icons/wi";
 import { MdNightlight } from "react-icons/md";
 
@@ -14,6 +15,7 @@ const karla = Karla({
 
 const Navbar = () => {
     const { theme, setTheme } = useTheme();
+    const { data: session, status } = useSession();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -22,6 +24,10 @@ const Navbar = () => {
 
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
+    };
+
+    const handleLogout = () => {
+        signOut({ callbackUrl: '/' });
     };
 
     return (
@@ -40,9 +46,25 @@ const Navbar = () => {
                             {theme === 'dark' ? <MdNightlight className='size-8' /> : <WiDaySunny className='size-8' />}
                         </button>
                     )}
-                    <Button>
-                        <Link href="/login" className={`${poppinsregular.className} font-semibold`}>Login</Link>
-                    </Button>
+
+                    {/* Show Login button if not authenticated */}
+                    {status !== 'loading' && !session && (
+                        <Button className="cursor-pointer">
+                            <Link href="/login" className={`${poppinsregular.className} font-semibold`}>Login</Link>
+                        </Button>
+                    )}
+
+                    {/* Show Dashboard and Logout buttons if authenticated */}
+                    {status !== 'loading' && session && (
+                        <>
+                            <Button variant="outline" className="cursor-pointer">
+                                <Link href="/dashboard" className={`${poppinsregular.className} font-semibold`}>Dashboard</Link>
+                            </Button>
+                            <Button variant="destructive" onClick={handleLogout} className="cursor-pointer">
+                                <span className={`${poppinsregular.className} font-semibold`}>Logout</span>
+                            </Button>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>
