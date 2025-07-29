@@ -27,9 +27,9 @@ const Navbar = () => {
     return (
         <nav>
             <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-                <a href="/" className={`${karla.className} font-bold flex items-center space-x-3 rtl:space-x-reverse`}>
+                <Link href="/" className={`${karla.className} font-bold flex items-center space-x-3 rtl:space-x-reverse`}>
                     <span className='text-3xl font-bold'>Tinyr</span>
-                </a>
+                </Link>
                 <div className='flex items-center space-x-4'>
                     {mounted && (
                         <button
