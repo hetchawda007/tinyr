@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-    MdContentCopy, 
-    MdDelete, 
-    MdEdit, 
-    MdLink, 
-    MdAnalytics, 
-    MdTrendingUp, 
+import {
+    MdContentCopy,
+    MdDelete,
+    MdEdit,
+    MdLink,
+    MdAnalytics,
+    MdTrendingUp,
     MdVisibility,
     MdAdd,
     MdCheck,
@@ -167,9 +167,9 @@ export default function Dashboard() {
                             </p>
                         </div>
                         <div className="flex gap-3 mt-4 lg:mt-0">
-                            <Button 
-                                onClick={fetchData} 
-                                variant="outline" 
+                            <Button
+                                onClick={fetchData}
+                                variant="outline"
                                 className="hover:bg-blue-50 dark:hover:bg-blue-900/20"
                             >
                                 <MdRefresh className="w-4 h-4 mr-2" />
